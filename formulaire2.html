@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fomulaire</title>
+    <link rel="stylesheet" href="./public/css/bootstrap.min.css" />
+  </head>
+  <body>
+    
+    <div class="row mx-3 px-auto">
+      <div class="col-md-4">
+        <!-- premier formulaire  -->
+
+        <div class="row">
+          <div class="card mt-4 mx-2">
+            <div class="card-body">
+              <div class="card-text">
+                <form action="" class="form">
+                  <h3>Informations de connexion</h3>
+                  <div class="form-group">
+                    <label for="pseudo" class="form-label">Pseudo</label>
+                    <input type="text" name="pseudo" id="pseudo"  class="form-control" placeholder="Votre pseudo en un seule mot" required/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input type="password" name="password" id="password"  class="form-control" placeholder="Votre mot de passe" minlength="8" required/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="passwordConfirm" class="form-label">Mot de passe</label>
+                    <input type="password" name="passwordConfirm" id="passwordConfirm"  class="form-control" placeholder="Confirmer votre mot de passe" minlength="8" required/>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Premier formulaire fin -->
+
+        <!-- Deuxième formulaire -->
+
+        <div class="row">
+          <div class="card mt-4 mx-2">
+            <div class="card-body">
+              <div class="card-text">
+                <form action="" class="form">
+                  <h3>Identité du client</h3>
+                  <div class="form-group">
+                    <label for="nom" class="form-label">Nom et prénoms</label>
+                    <input type="text" name="nom" id="nom"  class="form-control" placeholder="Votre nom et prénom" required/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="entreprise" class="form-label">Entreprise / Société</label>
+                    <input type="text" name="entreprise" id="entreprise"  class="form-control" placeholder="Le nom de la société" minlength="8" required/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="telephone" class="form-label">Cellulaire / Téléphone</label>
+                    <input type="tel" name="telephone" id="telephone"  class="form-control" placeholder="Ex:+229xxxxxxxx" minlength="8" required/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" name="Email" id="Email"  class="form-control" placeholder="Ex:test@gmail.com" minlength="10" required/>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="commune" class="form-label">Votre commune</label>
+                    <select name="Commune" class="form-select"> 
+                      <option disabled selected>Choisir votre commune</option> 
+                      <option value="plateau" label="Plateau"></option> 
+                      <option value="cocody" label="Cocody"></option> 
+                      <option value="2plateaux" label="II Plateaux"></option> 
+                      <option value="treichville" label="Treichville"></option> 
+                      <option value="yopougon" label="Yopougon"></option> 
+                   </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="adresse" class="form-label">Adresse exacte (Quartier / Rue / Porte)</label>
+                    <textarea name="adresse" class="form-control" id="adresse" cols="30" rows="5" required></textarea>
+                  </div>
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- deuxième formulaire fin -->
+
+
+        <!-- troisième formulaire -->
+
+        <div class="row">
+          <div class="card mt-4 mx-2">
+            <div class="card-body">
+              <div class="card-text">
+                <form action="" class="form">
+                  <h3>Tarif souhaité</h3>
+
+                  <div class="form-check">
+                    <input name="tarif" class="form-check-input" type="radio" value="500" ><label for="tarif" class="form-check-label">Moins de 500 F</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="tarif" class="form-check-input" type="radio" value="1000">
+                    <label for="tarif" class="form-check-label">Entre 500 F et 1000 F</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="tarif" class="form-check-input" type="radio" value="1500">
+                    <label for="tarif" class="form-check-label">Entre 1000 F et 1500 F</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="tarif" class="form-check-input" type="radio" value="2000">
+                    <label for="tarif" class="form-check-label">2000 F et plus </label> 
+
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="tarif" class="form-check-input" type="radio" value="0">
+                    <label for="tarif" class="form-check-label">Indifférent</label> 
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- troisième formulaire  fin -->
+
+
+         <!-- quatrième formulaire -->
+
+         <div class="row">
+          <div class="card mt-4 mx-2">
+            <div class="card-body">
+              <div class="card-text">
+                <form action="" class="form">
+                  <h3>Période de livraison souhaitée</h3>
+
+                  <div class="form-check">
+                    <input name="periode[]" class="form-check-input" type="checkbox" value="matin" >
+                    <label for="tarif" class="form-check-label">Matin (Petit déjeuner)</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="periode[]" class="form-check-input" type="checkbox" value="midi">
+                    <label for="tarif" class="form-check-label">Midi (Déjeuner)</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="periode[]" class="form-check-input" type="checkbox" value="apresmidi">
+                    <label for="tarif" class="form-check-label">Après-midi (Gouter)</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="periode[]" class="form-check-input" type="checkbox" value="soir">
+                    <label for="tarif" class="form-check-label">Soir (Diner) </label> 
+
+
+                  </div>
+
+                  <div class="form-group">
+                    
+                    <label for="precision" class="form-label">Autres précisions</label> 
+                    <textarea name="precision" id="precision" cols="30" rows="5" class="form-control"></textarea>
+
+                  </div>
+
+                  <div class="form-group mt-3">
+                    <button class="btn btn-success" type="submit" name="valider">Valider</button>
+                    <button class="btn btn-warning" type="reset">Annuler</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- quatrième formulaire  fin -->
+
+        <h2 class="mt-5">Saisie des recettes proposées</h2> 
+
+         <!-- Cinquième formulaire  -->
+
+         <div class="row">
+          <div class="card mt-4 mx-2">
+            <div class="card-body">
+              <div class="card-text">
+                <form action="" class="form">
+                  <h4>Informations sur la recette</h4>
+                  <div class="form-group">
+                    <label for="nomrecette" class="form-label">Nom de la recette</label>
+                    <input type="text" name="nomrecette" id="nomrecette"  class="form-control" placeholder="Votre recette" required/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="description" class="form-label">Description de la recette</label>
+                    <textarea name="description" id="description"  rows="5" class="form-control" required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="prix" class="form-label">Prix du plat pour une personne</label>
+                    <input type="number" name="prix" id="prix"  min="0" max="10000" step="500"  class="form-control"   required/>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="capacite" class="form-label">Capacité de production</label>
+                    <input type="number" name="capacite" id="capacite" min="0" max="100" class="form-control"   required/>
+                  </div>
+                  <h5>Période de disponibilité</h5>
+                  <div class="form-check">
+                    <input name="periode[]" class="form-check-input" type="checkbox" value="matin" id="matin" >
+                    <label for="matin" class="form-check-label">Matin (Petit déjeuner)</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="periode[]" class="form-check-input" type="checkbox" value="midi" id="midi">
+                    <label for="midi" class="form-check-label">Midi (Déjeuner)</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="periode[]" class="form-check-input" type="checkbox" value="apresmidi" id="apresmidi">
+                    <label for="apresmidi" class="form-check-label">Après-midi (Gouter)</label> 
+
+                  </div>
+
+                  <div class="form-check">
+                    <input name="periode[]" class="form-check-input" type="checkbox" value="soir" id="soir">
+                    <label for="soir" class="form-check-label">Soir (Diner) </label> 
+
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cinquième formulaire fin -->
+
+
+          <!-- sixième formulaire  -->
+
+          <div class="row">
+            <div class="card mt-4 mx-2">
+              <div class="card-body">
+                <div class="card-text">
+                  <form action="" class="form">
+                    <h3>Echantillons</h3>
+                    <div class="form-group">
+                      <label for="fichier" class="form-label">Télécharger quelques images (Format JPG, PNG, GIF - Taille totale < 5 Mo)</label>
+                      <input type="file" name="fichier" id="fichier" multiple accept="image/gif,image/jpeg,image/x-png" required>
+                      <input name="MAX_FILE_SIZE" type="hidden" value="5000000" />
+                    </div>
+
+                    <div class="form-group mt-3">
+                      <button class="btn btn-warning" type="reset">Annuler</button>
+                      <button class="btn btn-success" type="submit" name="valider">Valider</button>
+                     
+                    </div>
+  
+                   
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- sixième formulaire fin -->
+
+
+        
+      </div>
+    </div>
+
+    <script src="./public/js/bootstrap.min.js"></script>
+  </body>
+</html>

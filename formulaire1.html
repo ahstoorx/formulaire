@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>formulaire</title>
+</head>
+<body>
+   <form name="finscription" action="validinscription.php" method="post"> <h2>Formulaire d'inscription</h2> 
+      <fieldset>
+         <legend>Informations de connexion</legend> 
+         <label>Pseudo</label><br/> 
+         <input name="pseudo" type="text" size="50" maxlength="250" placeholder="Votre pseudo en un seule mot"><br/> 
+         <label>Mot de passe</label><br/> 
+         <input name="pass" type="password" size="50" maxlength="250" placeholder="Votre mot de passe en 8 caracteres mini"><br/> 
+         <label>Retaper le mot de passe</label><br/> 
+         <input name="repass" type="password" size="50" maxlength="250" placeholder="Retaper le meme mot de passe"> 
+      </fieldset> <fieldset>
+         <legend>Identité du client</legend> <label>Nom et prénoms</label><br/> 
+         <input name="nom" type="text" size="50" maxlength="250" ><br/> 
+         <label>Entreprise / Société</label><br/> <input name="entreprise" type="text" size="50" ><br/> 
+         <label>Cellulaire / Téléphone </label><br/> <input name="telephone" type="tel" size="50"><br/> 
+         <label>Email</label><br/> <input name="email" type="email" size="50" ><br/> 
+            <label>Votre commune</label><br/> 
+            <select name="Commune"> 
+               <option value="0" label="Choisir votre commune"></option> 
+               <option value="plateau" label="Plateau"></option> 
+               <option value="cocody" label="Cocody"></option> 
+               <option value="2plateaux" label="II Plateaux"></option> 
+               <option value="treichville" label="Treichville"></option> 
+               <option value="yopougon" label="Yopougon"></option> 
+            </select><br />
+             <label>Adresse exacte (Quartier / Rue / Porte) </label><br/> 
+             <textarea name="adresse" cols="50" rows="3"></textarea> 
+            </fieldset> <fieldset>
+               <legend>Tarif souhaité</legend> 
+               <label><input name="tarif" type="radio" value="500" >Moins de 500 F</label><br/> 
+               <label><input name="tarif" type="radio" value="1000">Entre 500 F et 1000 F</label><br/> 
+               <label><input name="tarif" type="radio" value="1500">Entre 1000 F et 1500 F</label><br/> 
+               <label><input name="tarif" type="radio" value="2000">2000 F et plus </label><br/> 
+               <label><input name="tarif" type="radio" value="0">Indifférent</label><br/> 
+            </fieldset> 
+            <fieldset>
+               <legend>Période de livraison souhaitée</legend> 
+               <label><input name="periode[]" type="checkbox" value="matin" >Matin (Petit déjeuner)</label><br/> 
+               <label><input name="periode[]" type="checkbox" value="midi">Midi (Déjeuner)</label><br/> <label>
+                  <input name="periode[]" type="checkbox" value="apresmidi">Après-midi (Gouter)</label><br/> 
+                  <label><input name="periode[]" type="checkbox" value="soir">Soir (Diner) </label><br/> 
+               </fieldset> <label>Autres précisions </label><br/> 
+               <textarea name="precision" cols="50" rows="3"></textarea><br/> 
+               <input name="valider" type="submit" value="Valider">
+               <input name="Annuler" type="reset" value="Annuler"> 
+            </form>
+         <form name="finscription" action="validinscription.php" method="post" enctype="multipart/form-data"> 
+            <h2>Saisie des recettes proposées</h2> 
+            <fieldset>
+               <legend>Informations sur la recette</legend> 
+               <label>Nom de la recette</label><br/> 
+               <input name="nomrecette" type="text" size="50" maxlength="250"><br/> 
+               <label>Description de la recette</label><br/> 
+               <textarea name="description" rows="5" cols="50"></textarea><br/> 
+               <label>Prix du plat pour une personne <input name="prix" type="number" min="0" max="10000" step="500" /></label><br/> 
+               <label>Capacité de production <input name="capacite" type="number" min="0" max="100" /></label><br/> 
+               <label>Période de disponibilité</label><br/> 
+               <label><input name="periode[]" type="checkbox" value="matin" >Matin (Petit déjeuner)</label><br/> 
+               <label><input name="periode[]" type="checkbox" value="midi">Midi (Déjeuner)</label><br/> 
+               <label><input name="periode[]" type="checkbox" value="apresmidi">Après-midi (Gouter)</label><br/> 
+               <label><input name="periode[]" type="checkbox" value="soir">Soir (Diner) </label><br/>
+             </fieldset> 
+             <fieldset>
+               <legend>Echantillons</legend> 
+               <label>Télécharger quelques images (Format JPG, PNG, GIF - Taille totale < 5 Mo) <br/> 
+                  <input name="photo" type="file" multiple accept="image/gif,image/jpeg,image/x-png" >
+               </label><br/>
+                <input name="MAX_FILE_SIZE" type="hidden" value="5000000" /></label><br/> 
+               </fieldset> <br/> <input name="valider" type="submit" value="Valider">
+               <input name="Annuler" type="reset" value="Annuler">
+   </form>
+</body>
+</html>

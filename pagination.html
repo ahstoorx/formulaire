@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div class="container" style="max-width: none;margin: 15px 0 15px 0;">
+            <label style="display: flex;">
+                Affichage de
+                <select class="form-control form-control-sm" id="table_length2" data-total="<?=count($datas['data'])?>"
+                    data-page="1" data-length="10" data-end="9" data-start="0"
+                    style="max-width: 50px;margin: 0 7px 0 7px;">
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                </select>
+                par page
+            </label>
+        </div>
+
+
+        <div class="container" style="max-width: none;margin-top: 5px">
+            <span style="font-size: 15px;">Affichage de <span id="debutPagination">1</span> à <span
+                    id="finPagination">10</span> sur
+                <?=count($datas["data"])?> entrées
+            </span>
+            <ul class="pagination pagination_datatable" id='numerotationPage' style="float: right;">
+                <!-- <li class="page-item active"> -->
+                <li class="page-item" id="precedant"><a class="page-link" href='javascript:void(0)'>Précédent</a></li>
+
+                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                <li class="page-item" id="suivant"><a class="page-link" href='javascript:void(0)'>Suivant</a></li>
+
+            </ul>
+        </div>
+
+
+
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <script>
+        // Pour recuperer le champ permettant de faire la selection du nombre d'élément par page
+        let idPagination = document.getElementById('table_length2');
+
+        if (idPagination) {
+
+            // Pour voir la page active
+            let activePage = idPagination.getAttribute('data-page');
+
+            function AdvPagination() {
+                {
+
+                    // Pour compter le nombre de page
+                    let nombreDePage = Math.floor(parseInt(idPagination.getAttribute('data-total')) / parseInt(idPagination.value));
+                    let resteElement = parseInt(idPagination.getAttribute('data-total')) - (nombreDePage * parseInt(idPagination.value));
+
+                    nombreDePage += ((resteElement > 0) ? 1 : 0)
+
+                    let element = `<li class="page-item" id="precedant"><a class="page-link" href='javascript:void(0)'>Précédent</a></li>`;
+
+                    let suivantElement = document.getElementById('suivant');
+
+
+                    for (let i = 0; i < nombreDePage; i++) {
+                        element += `<li class="page-item"><a class="page-link" href='javascript:void(0)' onclick='changePage(${i + 1})'>${i + 1}</a></li>`;
+                    }
+
+                    element += ` <li class="page-item" id="suivant"><a class="page-link" href='javascript:void(0)'>Suivant</a></li>`
+
+                    // Pour ajouter avant le button suivant
+                    document.getElementById('numerotationPage').innerHTML = element;
+                }
+            }
+
+            // Pagination par défaut
+            AdvPagination()
+
+            // Mise sur écoute
+            idPagination.addEventListener('change', AdvPagination)
+
+
+            function changePage(identifiant) {
+                let NumeroPage = parseInt(identifiant);
+
+                // Pour compter le nombre de page
+                let total = parseInt(idPagination.getAttribute('data-total'))
+                let numberPerPage = parseInt(idPagination.value);
+                let nombreDePage = Math.floor(total / numberPerPage);
+                let resteElement = total - (nombreDePage * numberPerPage);
+
+                nombreDePage += ((resteElement > 0) ? 1 : 0);
+
+                let fin = NumeroPage * numberPerPage
+                let debut = fin - numberPerPage;
+                fin = (fin > total) ? total : fin;
+
+                document.getElementById('debutPagination').textContent = debut;
+                document.getElementById('finPagination').textContent = fin;
+
+                let nombreDeLigne = document.querySelectorAll('tr');
+
+                for (let i = 0; i < total; i++) {
+
+                    if (i >= debut && i <= fin) {
+
+                        console.log("disponible", nombreDeLigne[i])
+                        nombreDeLigne[i].classList.contains('d-none') ? nombreDeLigne[i].classList.remove('d-none') : '';
+                    }
+                    else {
+                        console.log("non disponible", nombreDeLigne[i].classList)
+                        nombreDeLigne[i].classList.contains('d-none') ? '' : nombreDeLigne[i].classList.add('d-none');
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

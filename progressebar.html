@@ -21,7 +21,7 @@
     <main>
         <div class="progress  my-5   " style="height: 4vh;">
             <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger  " role="progressbar"
-                style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progresse">Niveau
+                style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1000" id="progresse">Niveau
             </div>
         </div>
 
@@ -107,6 +107,8 @@
                 // Use above variables to manipulate the DOM
             });
 
+
+            // Vérifie si l'on écrit dans le champ de saisie
             document.getElementById('code').addEventListener('keyup', () => {
                 document.getElementById('helpId').classList.contains('d-none') ? '' : document.getElementById('helpId').classList.add('d-none');
 
@@ -137,7 +139,7 @@
                     document.getElementById('modal_1').click();
                     clearInterval(niveau1);
                 }
-            }, 100);
+            }, 1000);
 
 
             document.getElementById('checkCode').addEventListener('click', () => {
@@ -162,7 +164,7 @@
                                 document.getElementById('modal_1').click();
                                 clearInterval(niveau2);
                             }
-                        }, 100);
+                        }, 1000);
                     }
                     else {
                         // document.getElementById('modal_1').click();
@@ -188,7 +190,7 @@
                                 document.getElementById('modal_1').click();
                                 clearInterval(niveau3);
                             }
-                        }, 100);
+                        }, 1000);
                     }
                     else {
                         // document.getElementById('modal_1').click();
@@ -231,7 +233,7 @@
                                     text: "Une erreur s'est produite lors du traitement",
                                 })
                             }
-                        }, 100);
+                        }, 1000);
                     }
                     else {
                         // document.getElementById('modal_1').click();
